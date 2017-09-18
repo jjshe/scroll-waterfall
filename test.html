@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>  
+<meta charset="utf-8"/>  
+<title>滚轮加载瀑布流效果</title>  
+<head>  
+    <style>  
+        #Books{  
+            width: 1000px;  
+            height: auto;  
+            margin: 0 auto;
+            min-height:800px
+        }  
+        .container-fluid {  
+           /** padding: 20px;  **/
+        }  
+        .box {  
+            /**margin-bottom: 20px;***/
+            background: blue;
+            float: left;  
+            width: 220px;
+            height: 60px;
+        }
+        .box:nth-child(even){background: red; height: 100px;}
+        .box img {  
+            max-width: 100%  
+        }  
+    </style>  
+    <script src="jquery.js"></script>  
+    <script src="masonry.pkgd.js"></script>  
+  
+</head>  
+<body>  
+<div id="Books">  
+    <div id="masonry" class="container-fluid">
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        <div class="box">value='1111'</div>
+        
+  
+    </div>  
+</div>  
+  
+    <script type="text/javascript">  
+        var $container = $('#masonry');  
+  
+       // $container.imagesLoaded(function() {  
+            $container.masonry({  
+                itemSelector: '.box',  
+                gutterWidth: 220,  
+                isAnimated: true  
+            });  
+      //  });  
+      console.log($(document).height(),$(window).height());
+        $(window).scroll(function(){  
+
+            var scrollTop = $(document).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+
+            console.log(scrollHeight,windowHeight);
+            var is=true;
+            function add(){
+
+                    var $boxes=$('<div class="box">value=3333</div><div class="box">value=3333</div><div class="box">value=3333</div>');
+                     $('#masonry').append($boxes).masonry('appended', $boxes);;  
+      
+                    is = true;
+                } 
+
+            if(scrollTop >= scrollHeight - windowHeight && is){  
+                // console.log(scrollHeight - windowHeight,scrollTop);
+                // console.log('scrollTop:'+scrollTop,'documentHeight:'+scrollHeight,windowHeight);
+                // console.log(scrollTop >= scrollHeight - windowHeight);
+
+                setTimeout(add(),3000); is = false; 
+                    
+            }  
+        });
+    </script>  
+</body>  
+</html>  
